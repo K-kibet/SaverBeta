@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.kibet.saverbeta">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SaverBeta"
+        tools:targetApi="31"
+        android:roundIcon="@mipmap/ic_launcher_round">
+
+
+        <activity
+            android:name="com.kibet.saverbeta.SplashActivity"
+            android:theme="@style/Theme.SaverBeta.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.kibet.saverbeta.BaseDrawerActivity"
+            android:label="@string/title_activity_base_drawer"
+            android:theme="@style/Theme.SaverBeta.NoActionBar" />
+        <activity
+            android:name="com.kibet.saverbeta.GBWhatsappActivity"
+            android:parentActivityName="com.kibet.saverbeta.BaseDrawerActivity"
+            android:theme="@style/Theme.SaverBeta.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kibet.saverbeta.BaseDrawerActivity" />
+        </activity>
+        <activity
+            android:name="com.kibet.saverbeta.BusinessWhatsappActivity"
+            android:parentActivityName="com.kibet.saverbeta.BaseDrawerActivity"
+            android:theme="@style/Theme.SaverBeta.NoActionBar">
+        </activity>
+        <activity
+            android:name="com.kibet.saverbeta.activities.ImageViewerActivity"
+            android:theme="@style/Theme.SaverBeta.NoActionBar"
+            android:parentActivityName="com.kibet.saverbeta.BaseDrawerActivity"/>
+        <activity
+            android:name="com.kibet.saverbeta.activities.GBImageActivity"
+            android:theme="@style/Theme.SaverBeta.NoActionBar"/>
+        <activity
+            android:name="com.kibet.saverbeta.activities.BusinessImageActivity"
+            android:theme="@style/Theme.SaverBeta.NoActionBar"/>
+        <activity
+            android:name="com.kibet.saverbeta.activities.VideoViewerActivity"
+            android:theme="@style/Theme.SaverBeta.NoActionBar"
+            android:parentActivityName="com.kibet.saverbeta.BaseDrawerActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode"/>
+        <activity
+            android:name="com.kibet.saverbeta.activities.BusinessVideoActivity"
+            android:theme="@style/Theme.SaverBeta.NoActionBar"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode"/>
+        <activity
+            android:name="com.kibet.saverbeta.activities.GBVideoActivity"
+            android:theme="@style/Theme.SaverBeta.NoActionBar"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode"/>
+        <provider
+            android:authorities="com.kibet.saverbeta.FileProvider"
+            android:name="androidx.core.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths"/>
+        </provider>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5358683458645157~2811577273"/>
+    </application>
+
+</manifest>
